@@ -27,7 +27,7 @@ chsh -s "$(which zsh)"
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # dotfiles
-git clone https://github.com/TheLocehiliosan/yadm.git ~/.local/share/yadm
+git clone -b 3.1.1 https://github.com/TheLocehiliosan/yadm.git ~/.local/share/yadm
 ln -s ~/.local/share/yadm/yadm ~/.local/bin/yadm
 
 # exit su mode and go back to normal mode
