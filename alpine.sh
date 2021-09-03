@@ -1,6 +1,6 @@
-USERNAME=kaarmu
-UPDATE=apk update && apk upgrade
-INSTALL=apk add
+USERNAME="kaarmu"
+UPDATE="apk update && apk upgrade"
+INSTALL="apk add"
 
 # Go to home and go into super-user mode
 cd
@@ -27,7 +27,7 @@ chsh -s "$(which zsh)"
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # dotfiles
-# sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply <github-username>
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply kaarmu
 
 # exit su mode and go back to normal mode
 exit 
