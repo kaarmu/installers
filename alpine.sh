@@ -1,4 +1,9 @@
-#! /bin/sh                                                                   NAME="kaarmu"                                                                UPDATE="apk update && apk upgrade"                                           INSTALL="apk add"                                                            BASIC_PKGS="curl openssh git neovim nano"                                    
+#! /bin/sh                                                                   
+NAME="kaarmu"                                                                
+UPDATE="apk update && apk upgrade"                                           
+INSTALL="apk add"                                                            
+BASIC_PKGS="curl openssh git neovim nano"                                    
+
 # the normal directories
 mkdir -p ~/.config ~/.local/{share,bin} ~/.cache
 PATH=$PATH:~/.local/bin
