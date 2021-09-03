@@ -1,33 +1,23 @@
-USERNAME="kaarmu"
-UPDATE="apk update && apk upgrade"
-INSTALL="apk add"
-
-# Go to home and go into super-user mode
-cd
-su
-
-# Install basics
-$UPDATE
-$INSTALL curl openssh git neovim 
-
+#! /bin/sh                                                                   NAME="kaarmu"                                                                UPDATE="apk update && apk upgrade"                                           INSTALL="apk add"                                                            BASIC_PKGS="curl openssh git neovim nano"                                    
 # the normal directories
 mkdir -p ~/.config ~/.local/{share,bin} ~/.cache
-PATH=PATH:~/.local/bin
+PATH=$PATH:~/.local/bin
+
+# Install basics
+read -p "Press <enter> to install \"$BASIC_PKGS\""
+su -c "$UPDATE && $INSTALL $BASIC_PKGS"
 
 # must fix sudo
-$INSTALL sudo
-addgroup $USERNAME wheel
-EDITOR=nvim visudo
+su -c $INSTALL sudo && addgroup $NAME wheel
+read -p "Press <enter> to update sudoers file"
+EDITOR=nano visudo
 
 # change to zsh
-$INSTALL zsh shadow
-chsh -s "$(which zsh)" 
+sudo $INSTALL zsh shadow
+sudo chsh -s "$(which zsh)"
 
 # startship prompt
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # dotfiles
 sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply kaarmu
-
-# exit su mode and go back to normal mode
-exit 
