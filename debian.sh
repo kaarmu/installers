@@ -20,4 +20,4 @@ chsh -s $(which zsh)
 sudo curl -fsSL https://starship.rs/install.sh
 
 # dotfiles management
-sudo curl -fsLS git.io/chezmoi -- init --apply kaarmu"
+BINDIR=~/.local/bin sh -c "$(-fsLS git.io/chezmoi)" -- init --apply kaarmu"
